@@ -4283,6 +4283,227 @@
   }
 </style>
 
+  <style id="tmargo-responsive-tablet-fix-v1">
+    /*
+      Correções isoladas para tablets.
+      Este bloco fica por último para neutralizar apenas as regras conflitantes,
+      sem alterar os scripts, imagens ou animações existentes.
+    */
+    @media (min-width:700px) and (max-width:1180px){
+      .hero{
+        display:block !important;
+        min-height:auto !important;
+        height:auto !important;
+        padding:126px 0 64px !important;
+      }
+
+      .hero .container,
+      .tmargo-footer .container{
+        width:calc(100% - 32px) !important;
+        max-width:1100px !important;
+      }
+
+      .hero-shell{
+        display:grid !important;
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+        gap:18px !important;
+        align-items:center !important;
+        min-height:560px !important;
+        height:auto !important;
+      }
+
+      .hero-content{
+        width:100% !important;
+        max-width:100% !important;
+        transform:none !important;
+      }
+
+      .hero-title,
+      .hero h1{
+        width:100% !important;
+        max-width:100% !important;
+        font-size:clamp(2.05rem,4.2vw,3.1rem) !important;
+        line-height:.98 !important;
+        letter-spacing:-.058em !important;
+      }
+
+      .hero-title-line{
+        display:block !important;
+        white-space:nowrap !important;
+      }
+
+      .hero p{
+        max-width:100% !important;
+        margin:22px 0 27px !important;
+        font-size:clamp(.82rem,1.45vw,.98rem) !important;
+        line-height:1.55 !important;
+      }
+
+      .hero .actions,
+      .hero .btn{
+        width:auto !important;
+      }
+
+      .hero .btn{
+        padding:12px 15px !important;
+        font-size:.82rem !important;
+      }
+
+      .hero-visual{
+        position:relative !important;
+        inset:auto !important;
+        width:100% !important;
+        max-width:520px !important;
+        height:auto !important;
+        min-height:430px !important;
+        margin:0 auto !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        gap:0 !important;
+        overflow:visible !important;
+        transform:none !important;
+      }
+
+      .hero-robot-wrap{
+        position:relative !important;
+        inset:auto !important;
+        width:56% !important;
+        height:auto !important;
+        aspect-ratio:380/470 !important;
+        flex:0 0 56% !important;
+        margin:0 !important;
+        transform:none !important;
+        z-index:3 !important;
+      }
+
+      .hero-robot{
+        width:100% !important;
+        height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        transform:none !important;
+      }
+
+      .phone-mockup{
+        position:relative !important;
+        inset:auto !important;
+        width:44% !important;
+        height:auto !important;
+        aspect-ratio:312/585 !important;
+        flex:0 0 44% !important;
+        margin:0 !important;
+        padding:8px !important;
+        border-radius:27px !important;
+        transform:perspective(1000px) rotateY(-4deg) rotateX(2deg) !important;
+        z-index:2 !important;
+      }
+
+      .phone-top-speaker{
+        top:5px !important;
+        width:64px !important;
+        height:11px !important;
+      }
+
+      .phone-side-button{display:none !important}
+      .phone-screen{padding:18px 8px 8px !important;border-radius:20px !important}
+      .phone-header{gap:4px !important;margin-bottom:7px !important}
+      .phone-contact{gap:5px !important}
+      .phone-avatar{width:25px !important;height:25px !important;font-size:.62rem !important}
+      .phone-contact strong{font-size:clamp(.55rem,.88vw,.7rem) !important}
+      .phone-contact small{font-size:clamp(.4rem,.62vw,.52rem) !important}
+      .phone-screen .online{font-size:clamp(.4rem,.62vw,.5rem) !important;white-space:nowrap !important}
+      .phone-screen .online:before{width:4px !important;height:4px !important;margin-right:3px !important}
+      .phone-chat{gap:6px !important;margin-top:6px !important}
+      .phone-bubble{padding:7px 8px !important;font-size:clamp(.48rem,.78vw,.62rem) !important;line-height:1.36 !important;border-radius:10px !important}
+      .phone-bottom-cards{left:8px !important;right:8px !important;bottom:8px !important;gap:4px !important}
+      .phone-mini-card{padding:6px 3px !important;border-radius:8px !important}
+      .phone-mini-card strong{font-size:clamp(.55rem,.8vw,.68rem) !important}
+      .phone-mini-card small{font-size:clamp(.34rem,.52vw,.45rem) !important}
+
+      /* Na prática: passos à esquerda e conversa à direita. */
+      #como .demo{
+        grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr) !important;
+        gap:18px !important;
+        align-items:center !important;
+      }
+
+      #como .steps{width:100% !important;gap:8px !important;margin:0 !important}
+      #como .step{gap:10px !important;padding:12px !important}
+      #como .step-num{flex:0 0 29px;width:29px !important;height:29px !important;font-size:.7rem !important}
+      #como .step b{font-size:clamp(.7rem,1.05vw,.82rem) !important}
+      #como .step p{font-size:clamp(.64rem,.95vw,.76rem) !important;line-height:1.42 !important}
+      #como .mock{width:100% !important;max-width:100% !important;padding:11px !important;justify-self:stretch !important;transform:none !important;animation:none !important}
+      #como .mock-body{gap:7px !important}
+      #como .msg{max-width:92% !important;padding:9px 10px !important;font-size:clamp(.62rem,.92vw,.74rem) !important;line-height:1.4 !important}
+      #como .msg.ai{margin-left:auto !important}
+      #como .flow{gap:4px !important;margin-top:12px !important;flex-wrap:wrap !important}
+      #como .node{padding:7px 8px !important;font-size:clamp(.52rem,.78vw,.64rem) !important}
+
+      /* Cases: os três permanecem na mesma fileira no tablet. */
+      #depoimentos .testimonials-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+        gap:10px !important;
+      }
+
+      #depoimentos .testimonial-card{
+        min-height:300px !important;
+        padding:18px !important;
+      }
+
+      #depoimentos .testimonial-card blockquote{
+        margin:15px 0 18px !important;
+        font-size:clamp(.69rem,1vw,.8rem) !important;
+        line-height:1.55 !important;
+      }
+
+      #depoimentos .testimonial-person{gap:8px !important;padding-top:14px !important}
+      #depoimentos .testimonial-avatar{width:38px !important;height:38px !important;flex-basis:38px !important}
+      #depoimentos .testimonial-person strong{font-size:.76rem !important}
+      #depoimentos .testimonial-person small{font-size:.62rem !important}
+
+      /* Rodapé: contatos, logo central e sugestões na mesma linha. */
+      .footer-main-grid{
+        grid-template-columns:minmax(0,1fr) 110px minmax(0,1fr) !important;
+        gap:16px !important;
+        align-items:center !important;
+        text-align:left !important;
+      }
+
+      .footer-contact-column{
+        grid-column:1 !important;
+        grid-row:1 !important;
+        align-items:flex-start !important;
+      }
+
+      .footer-logo-column{
+        grid-column:2 !important;
+        grid-row:1 !important;
+        min-height:auto !important;
+      }
+
+      .footer-suggestion-card{
+        grid-column:3 !important;
+        grid-row:1 !important;
+        width:100% !important;
+        padding:14px !important;
+        text-align:left !important;
+      }
+
+      .footer-main-logo-smaller{width:100px !important}
+      .footer-contact-row{width:100% !important;gap:9px !important;padding:4px 0 !important}
+      .footer-social-icon{width:21px !important;height:21px !important;flex-basis:21px !important}
+      .footer-contact-row strong{font-size:clamp(.65rem,.95vw,.76rem) !important}
+      .footer-suggestion-card h3{font-size:.9rem !important}
+      .footer-suggestion-card > p{font-size:.68rem !important;line-height:1.4 !important}
+      .compact-suggestion-form textarea{min-height:54px !important;font-size:.72rem !important}
+    }
+
+    /* No computador, traz o conjunto para dentro da área visível. */
+    @media (min-width:1181px){
+      .hero-visual{right:-75px !important}
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
