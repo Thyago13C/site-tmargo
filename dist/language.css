@@ -125,3 +125,41 @@
     gap: clamp(24px, calc(6vw - 43px), 40px);
   }
 }
+
+/* Mobile footer: trim vertical space and remove the secondary tagline. */
+@media (max-width: 800px) {
+  .footer { padding-top: 36px; }
+  .footer-grid { gap: 16px 8px; padding-bottom: 28px; }
+  .footer-brand p { margin: 14px 0; }
+  .footer-bottom { gap: 0; padding: 14px 0 16px; }
+  .footer-bottom span:nth-child(2) { display: none; }
+}
+
+/* Keep the complete navigation visible on tablets in landscape. */
+@media (min-width: 800px) and (min-height: 540px) and (max-width: 1199px) and (orientation: landscape) {
+  .header .nav.wrap { width: calc(100% - 32px); gap: 10px; }
+  .header .mobile-toggle { display: none; }
+  .header .nav-links,
+  .header .nav-links.open {
+    display: flex;
+    position: static;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-flow: row wrap;
+    gap: 4px clamp(8px, 1.2vw, 15px);
+    margin: 0;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+    box-shadow: none;
+    background: transparent;
+    font-size: 12px;
+  }
+  .header .nav-links > a { padding: 6px 0; min-height: 0; }
+  .header .nav-links .language-picker { display: none; }
+  .header .nav-actions { margin-left: 0; }
+  .header .nav-actions .language-picker,
+  .header .nav-actions .btn-outline { display: inline-flex; }
+  .header .nav-actions .btn { font-size: 12px; padding-inline: 10px; }
+}

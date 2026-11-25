@@ -14,14 +14,14 @@
   #integracoes .integration-stage { min-height: 0; padding-block: clamp(175px, 35svh, 340px) 8px; }
   #integracoes .integration-orbit-art { width: min(100%, 1320px); }
 }
-@media (min-width: 1000px) and (max-height: 800px) {
+@media (min-width: 1000px) and (max-height: 800px) and (pointer: fine) and (hover: hover) {
   #solucoes .section-heading .eyebrow { margin-bottom: 5px; }
   #solucoes .solution-grid { row-gap: 16px; padding: 0; }
   #solucoes .feature-icon { width: 36px; height: 36px; margin-bottom: 8px; }
   #solucoes .feature p { margin-top: 5px; line-height: 1.45; }
   .faq summary { padding-block: clamp(9px, 2svh, 16px); }
 }
-@media (min-width: 1000px) and (max-height: 660px) {
+@media (min-width: 1000px) and (max-height: 660px) and (pointer: fine) and (hover: hover) {
   #como { padding-block: 8px; }
   #como .process-cta .btn { padding-block: 10px; }
 }
@@ -31,7 +31,7 @@ main > section + section { margin-block-start: clamp(32px, 6vw, 88px); }
 /* The reference shows the original composition at 80% on a short notebook screen. */
 .hero, .hero-atmosphere { overflow: clip visible; }
 .orb-stage { min-height: max-content; }
-@media (min-width: 801px) and (max-height: 740px) {
+@media (min-width: 801px) and (max-height: 740px) and (pointer: fine) and (hover: hover) {
   .hero { padding-block: clamp(6px, calc(8svh - 40px), 26px) 18px; }
   .hero-inner, .hero-atmosphere { zoom: .8; }
   .hero h1 { font-size: clamp(60px, 6.3vw, 82px); }
@@ -205,4 +205,52 @@ main > #solucoes + #como {
 @media (max-width: 360px) and (max-height: 640px) {
   .hero { padding-top: 12px; }
   .hero-actions { margin-top: 10px; }
+}
+
+/* Keep the chat and its explanation together on tablets in portrait. */
+@media (min-width: 600px) and (max-width: 900px) and (orientation: portrait) {
+  .demo-layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    max-width: none;
+    gap: clamp(16px, 3vw, 26px);
+  }
+  .demo-layout .demo-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-inline: 6px;
+    gap: 4px;
+  }
+  .demo-layout .demo-tabs .tab {
+    flex-direction: column;
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 3px;
+    gap: 4px;
+    white-space: normal;
+    line-height: 1.25;
+    font-size: 12px;
+  }
+  .agent-summary { padding-inline: 0; }
+  .agent-summary h3 { font-size: clamp(22px, 3.4vw, 28px); }
+}
+
+/* Keep the document geometry stable while tablet browser controls slide in and out. */
+@media (orientation: landscape) and (any-pointer: coarse) and (min-width: 800px) and (max-width: 1440px) {
+  .header {
+    background-color: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  html { scroll-behavior: auto; }
+  #segmentos, #faq { scroll-margin-top: 12px; }
+  #como .process-cta { margin-top: 24px; }
+}
+@media (orientation: landscape) and (any-pointer: coarse) and (min-width: 1000px) and (max-width: 1440px) {
+  :is(#solucoes, #como, #integracoes) {
+    min-height: calc(75vw - 77px);
+    padding-block: clamp(12px, 2.25vw, 32px);
+  }
+  #solucoes .section-heading { margin-bottom: clamp(12px, 1.875vw, 28px); }
+  #solucoes .section-heading h2 { font-size: clamp(32px, 4.5vw, 50px); }
+  #integracoes .integration-stage { padding-block: clamp(175px, 26.25vw, 340px) 8px; }
 }

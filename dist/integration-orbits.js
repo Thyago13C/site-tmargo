@@ -16,9 +16,13 @@
   for (const ring of rings) {
     ring.nodes = ring.logos.map(logo => {
       const g = make('g', {class:'integration-node','data-tool':logo});
-      g.append(make('circle', {r:21}));
+      const badge = make('g', {class:'integration-badge'});
+      g.append(badge);
+      badge.append(make('circle', {r:21}));
       const icon = make('svg', {x:-11.5,y:-11.5,width:23,height:23,viewBox:'0 0 32 32'});
-      if (logo === 'n8n') {
+      if (logo === 'instagram' || logo === 'supabase') {
+        icon.append(make('image', {href: `assets/${logo}.svg`, width:32, height:32}));
+      } else if (logo === 'n8n') {
         icon.append(make('image', {href:'assets/n8n-badge.png', width:32, height:32}));
       } else if (['slack','asaas','notion'].includes(logo)) {
         const width = logo === 'asaas' ? 46 : 32;
@@ -27,7 +31,7 @@
       } else {
         icon.append(make('use',{href:`assets/integration-logos.svg#${logo}`}));
       }
-      g.append(icon);
+      badge.append(icon);
       layer.append(g);
       return g;
     });
@@ -35,6 +39,20 @@
     ring.length = ring.trackElement.getTotalLength();
     ring.pulseElement=document.getElementById(ring.pulse);
   }
+  const art = layer.ownerSVGElement;
+  function sizeMobileBadges() {
+    if (!matchMedia('(max-width: 800px), (max-width: 1440px) and (any-pointer: coarse)').matches) return;
+    const width = art.getBoundingClientRect().width;
+    if (!width) return;
+    const mobileDiameter = Math.min(64, Math.max(27, section.clientWidth * .075));
+    const tablet = matchMedia('(pointer: coarse) and (min-width: 600px) and (min-height: 600px)').matches;
+    const portrait = matchMedia('(orientation: portrait)').matches;
+    const diameter = tablet ? mobileDiameter * (portrait ? 0.78 : 0.88) : mobileDiameter;
+    layer.style.setProperty('--mobile-badge-scale', diameter * art.viewBox.baseVal.width / (42 * width));
+  }
+  sizeMobileBadges();
+  window.addEventListener('resize', sizeMobileBadges);
+
   const slotsPerRing = 5;
   const smooth = t => { t=Math.max(0,Math.min(1,t)); return t*t*(3-2*t); };
   const fade = t => smooth((t-.018)/.14)*smooth((.982-t)/.14);
