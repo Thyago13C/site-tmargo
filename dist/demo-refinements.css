@@ -1,0 +1,82 @@
+/* The simulator is a self-contained panel; the changing explanation stays outside it. */
+.demo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .94fr);
+  gap: clamp(34px, 5vw, 72px);
+  align-items: center;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.demo-layout .demo-frame {
+  width: 100%; margin: 0; min-width: 0;
+  border-color: #d9d0ff;
+  box-shadow: 0 0 0 1px #b4a0fc26, 0 0 30px 5px #a38afc29, 0 14px 52px #8368e91f;
+  transition: box-shadow .35s ease, border-color .35s ease;
+}
+.demo-layout .demo-frame:hover, .demo-layout .demo-frame:focus-within {
+  border-color: #c9baff;
+  box-shadow: 0 0 0 1px #b4a0fc40, 0 0 35px 7px #a38afc35, 0 14px 52px #8368e928;
+}
+.demo-layout .demo-tabs { justify-content: flex-start; padding-inline: 15px; gap: 8px; }
+.demo-layout .demo-tabs .tab {
+  white-space: nowrap; justify-content: center; flex: 1 1 auto;
+  border: 1px solid #ded6fc; background: #fff; color: #5b4ab2;
+  box-shadow: 0 2px 5px #4535860b; font-weight: 600;
+  transition: background .2s, color .2s, border-color .2s, box-shadow .2s;
+}
+.demo-layout .demo-tabs .tab:hover { background: #eee9ff; border-color: #b8a8f8; color: #5140c8; }
+.demo-layout .demo-tabs .tab.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 3px 10px #6552e83b; }
+.demo-layout .demo-tabs .tab.active:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.demo-layout .chat-pane { border-right: 0; border-bottom: 0; }
+.demo-layout .chat-messages { height: 280px; padding-block: 15px; overflow-anchor: none; }
+.demo-layout .chat-messages .bubble { flex-shrink: 0; animation: message-arrive .28s cubic-bezier(.21,.75,.3,1) both; }
+.demo-layout .chat-messages .bubble.typing { display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 57px; height: 34px; padding: 9px; animation: message-arrive .2s ease-out both; }
+.typing-dot { width: 6px; height: 6px; border-radius: 50%; background: #8a7db1; animation: typing-bounce 1.1s ease-in-out infinite; }
+.typing-dot:nth-child(2) { animation-delay: .15s; }
+.typing-dot:nth-child(3) { animation-delay: .30s; }
+@keyframes message-arrive { from { opacity: 0; transform: translateY(7px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes typing-bounce { 0%, 60%, 100% { transform: translateY(0); opacity: .45; } 30% { transform: translateY(-4px); opacity: 1; } }
+.demo-layout .chat-input { margin-top: 0; }
+.demo-layout .chat-input button:hover { background: #e8e0ff; }
+.demo-layout .demo-bottom { flex-wrap: wrap; gap: 7px 14px; padding: 11px 19px; font-size: 11px; }
+.agent-summary { text-align: center; padding: 22px 0; min-width: 0; }
+.agent-summary h3 { font-size: clamp(26px, 2.7vw, 32px); line-height: 1.17; font-weight: 700; letter-spacing: -.045em; margin: 0 0 15px; }
+.agent-summary h3 #agentTitleAccent { color: var(--primary); }
+.agent-summary p { font-size: 17px; line-height: 1.7; color: var(--muted); max-width: 390px; margin: 0 auto; text-wrap: pretty; }
+.agent-summary p + p { margin-top: 10px; }
+.agent-summary p.agent-availability { margin-top: 12px; }
+.agent-summary strong { font-weight: 700; color: var(--primary); }
+@media (max-width: 1050px) and (min-width: 801px) {
+  .demo-layout { gap: 28px; }
+  .demo-layout .demo-brand span:last-child, .demo-layout .demo-separator { display: none; }
+  .demo-layout .demo-tabs { gap: 4px; padding-inline: 8px; }
+  .demo-layout .demo-tabs .tab { font-size: 12px; padding: 9px 8px; gap: 5px; }
+  .agent-summary h3 { font-size: 27px; }
+  .agent-summary p { font-size: 16px; }
+}
+@media (max-width: 800px) {
+  .demo-layout { grid-template-columns: minmax(0, 1fr); gap: 27px; max-width: 580px; }
+  .demo-layout .demo-tabs { justify-content: flex-start; }
+  .demo-layout .demo-bottom { flex-direction: row; align-items: center; }
+  .agent-summary { padding: 7px 10px 0; }
+  .agent-summary h3 { font-size: 28px; margin-bottom: 12px; }
+  .agent-summary p { font-size: 16px; line-height: 1.65; }
+}
+@media (max-width: 480px) {
+  .demo-layout .demo-tabs { padding-inline: 5px; gap: 3px; flex-wrap: wrap; }
+  .demo-layout .demo-tabs .tab { font-size: 11px; padding: 8px 6px; }
+  .demo-layout .demo-bottom { padding: 12px; }
+  .agent-summary h3 { font-size: 26px; }
+  .demo-layout .chat-messages { height: 270px; }
+}
+
+.demo-booking { margin-top: 22px; }
+
+.chat-messages .bubble.product-photo { width: min(224px, 75%); padding: 4px; }
+.product-photo img { width: 100%; height: auto; border-radius: 8px; }
+
+@media (min-width: 801px) {
+  .demo-section {
+    zoom: 0.9;
+  }
+}

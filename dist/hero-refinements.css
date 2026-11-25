@@ -1,0 +1,142 @@
+/* Original Tmargo emblem, fluid voice-inspired sphere and soft peripheral auroras. */
+.hero-atmosphere {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 0% 63%, #c7bbff29 0, transparent 32%),
+    radial-gradient(ellipse at 100% 35%, #d1f3ed38 0, transparent 32%);
+}
+.hero-atmosphere::before,
+.hero-atmosphere::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  filter: blur(16px);
+  opacity: .76;
+  will-change: transform;
+}
+.hero-atmosphere::before {
+  width: 430px;
+  height: 380px;
+  left: -225px;
+  top: 43%;
+  border-radius: 39% 61% 66% 34% / 49% 42% 58% 51%;
+  background: conic-gradient(from 13deg at 53% 52%, #bdece8, #d8e7ff 22%, #a498ff 39%, #7e6aef 50%, #e1d8ff 68%, #f2f8ff 80%, #bdece8);
+  -webkit-mask-image: radial-gradient(ellipse 53% 55% at 47% 43%, transparent 55%, #000 67%, #000 77%, transparent 100%);
+  mask-image: radial-gradient(ellipse 53% 55% at 47% 43%, transparent 55%, #000 67%, #000 77%, transparent 100%);
+  animation: aurora-left 19s ease-in-out infinite alternate;
+}
+.hero-atmosphere::after {
+  width: 390px;
+  height: 445px;
+  right: -240px;
+  top: 5%;
+  border-radius: 51% 49% 62% 38% / 44% 58% 42% 56%;
+  background: conic-gradient(from 194deg at 44% 51%, #8b79fa, #a8c8ff 16%, #a5e9d8 38%, #efffff 62%, #dcd4ff 79%, #8b79fa);
+  -webkit-mask-image: radial-gradient(ellipse 59% 52% at 52% 50%, transparent 53%, #000 65%, #000 77%, transparent 100%);
+  mask-image: radial-gradient(ellipse 59% 52% at 52% 50%, transparent 53%, #000 65%, #000 77%, transparent 100%);
+  animation: aurora-right 23s ease-in-out infinite alternate;
+}
+@keyframes aurora-left {
+  0% { transform: rotate(-22deg) translate(-10px, 8px) scale(.96); }
+  100% { transform: rotate(4deg) translate(15px, -21px) scale(1.07); }
+}
+@keyframes aurora-right {
+  0% { transform: rotate(16deg) translate(5px, 3px) scale(1); }
+  100% { transform: rotate(-17deg) translate(-15px, 18px) scale(1.1); }
+}
+.orb-halo {
+  width: 248px;
+  height: 208px;
+  background: radial-gradient(ellipse, #9181ff30 8%, #c6dcf136 40%, transparent 71%);
+  filter: blur(14px);
+}
+.orb {
+  width: 151px;
+  height: 151px;
+  border-radius: 50%;
+  isolation: isolate;
+  transform: none;
+  background: #c3c2fa;
+  box-shadow: inset 0 0 14px #ffffff9c, 0 13px 30px #7a66d82b;
+  animation: orb-breathe 6.5s ease-in-out infinite;
+}
+.orb::before {
+  content: "";
+  position: absolute;
+  inset: -32%;
+  background: conic-gradient(from 150deg, #6756dd, #887cf6 23%, #a0c8fb 39%, #b9f4e3 56%, #eafcfa 68%, #a3b7f6 80%, #6756dd 100%);
+  filter: blur(13px);
+  animation: orb-current 14s linear infinite;
+}
+.orb-inner {
+  inset: -36% -28% 10% -28%;
+  border-radius: 46% 54% 40% 60% / 52% 41% 59% 48%;
+  background: radial-gradient(ellipse at 50% 40%, #f4fffbe8 12%, #c5f8e6ec 45%, #b5e6f4b0 64%, #a5b8fd50 77%, transparent 85%);
+  filter: blur(7px);
+  opacity: .95;
+  transform: none;
+  animation: orb-liquid 7s ease-in-out infinite alternate;
+}
+.orb-shine {
+  inset: -21%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 47% 71%, #6454e8dc 2%, #8374eeac 24%, #a19bf256 43%, transparent 59%),radial-gradient(ellipse at 26% 16%, #ffffffbc 2%, transparent 41%);
+  filter: blur(8px);
+  animation: orb-wave 8.5s ease-in-out infinite alternate;
+}
+.orb-orbit { display: none; }
+@keyframes orb-breathe {
+  0%, 100% { transform: translateY(0) scale(1); border-radius: 50% 50% 50% 50%; }
+  40% { transform: translateY(-4px) scale(1.025, .985); border-radius: 48% 52% 47% 53%; }
+  72% { transform: translateY(1px) scale(.99, 1.025); border-radius: 53% 47% 52% 48%; }
+}
+@keyframes orb-current {
+  0% { transform: rotate(0deg) scale(1.05); }
+  50% { transform: rotate(180deg) scale(1.22); }
+  100% { transform: rotate(360deg) scale(1.05); }
+}
+@keyframes orb-liquid {
+  0% { transform: translate(-12%, -5%) rotate(-23deg) scale(1.04); border-radius: 46% 54% 40% 60% / 52% 41% 59% 48%; }
+  50% { transform: translate(6%, 9%) rotate(22deg) scale(.89, 1.12); border-radius: 57% 43% 62% 38% / 48% 58% 42% 52%; }
+  100% { transform: translate(14%, -5%) rotate(-10deg) scale(1.1, .93); border-radius: 41% 59% 40% 60% / 61% 39% 61% 39%; }
+}
+@keyframes orb-wave {
+  0% { transform: translate(0%, 6%) rotate(-20deg) scale(1.1); }
+  50% { transform: translate(6%, -13%) rotate(24deg) scale(.9, 1.18); }
+  100% { transform: translate(-12%, 1%) rotate(-30deg) scale(1.02); }
+}
+@media (max-width:800px) {
+  .orb { width: 132px; height: 132px; }
+  .hero-atmosphere::before { width: 300px; height: 290px; left: -212px; top: 39%; opacity:.58; }
+  .hero-atmosphere::after { width: 275px; height: 325px; right: -196px; top: 14%; opacity:.55; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .orb,.orb::before,.orb-inner,.orb-shine,.hero-atmosphere::before,.hero-atmosphere::after { animation:none!important; }
+}
+
+/* Soft-edged fluid sphere, with CSS fallback for devices without WebGL. */
+.orb-halo { width: 195px; height: 195px; opacity: .4; }
+.orb:not(.fluid-ready) {
+  background: #cee5fa;
+  box-shadow: none;
+  -webkit-mask-image: radial-gradient(circle, #000 61%, #000c 65%, transparent 72%);
+  mask-image: radial-gradient(circle, #000 61%, #000c 65%, transparent 72%);
+}
+.orb-fluid { display: none; width: 100%; height: 100%; filter: blur(.8px); }
+.orb.fluid-ready {
+  width: 198px;
+  height: 198px;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  animation: none;
+  transform: none;
+}
+.orb.fluid-ready::before,
+.orb.fluid-ready .orb-inner,
+.orb.fluid-ready .orb-shine { display: none; }
+.orb.fluid-ready .orb-fluid { display: block; }
+@media(max-width:800px) {
+  .orb.fluid-ready { width: 174px; height: 174px; }
+}

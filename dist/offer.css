@@ -1,0 +1,16 @@
+.offer-section{position:relative;overflow:hidden;background:#fff;padding:80px 0 59px;isolation:isolate}
+.offer-layout{position:relative;display:grid;grid-template-columns:minmax(0,2.05fr) minmax(0,1fr);gap:25px;align-items:center;min-height:310px}
+.offer-copy{position:relative;z-index:1;text-align:left;max-width:800px}
+.offer-copy > .eyebrow{margin-bottom:14px}
+.offer-copy h2{font-size:clamp(36px,3.7vw,52px);line-height:1.08;letter-spacing:-.048em;font-weight:700;margin:0 0 22px}
+.offer-copy h2 span{color:var(--primary)}
+.offer-copy p{font-size:18px;font-weight:400;line-height:1.51;margin:0 0 8px;color:#5d5e70;max-width:800px}
+.offer-copy p .offer-highlight{color:var(--primary);font-weight:650}
+.offer-copy .offer-conclusion{margin:13px 0 0;font-size:18px;font-weight:400;color:#5d5e70}
+.offer-copy .offer-conclusion strong{color:var(--primary);font-weight:650}
+.offer-art{position:relative;min-height:290px;align-self:stretch;display:grid;place-items:center;pointer-events:none;isolation:isolate}
+.offer-visual{position:relative;width:147%;max-width:580px;transform:translateX(10%);isolation:isolate}
+.offer-aurora{display:block;width:100%;height:auto;stroke:none;fill:none;overflow:visible;opacity:.72}
+.offer-particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block}
+@media(max-width:900px){.offer-layout{grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:15px}.offer-copy h2{font-size:clamp(34px,4.6vw,42px)}.offer-copy p{font-size:17px}.offer-art{min-height:270px}.offer-visual{width:135%;transform:translateX(4%)}}
+@media(max-width:650px){.offer-section{padding:60px 0 32px}.offer-layout{display:flex;flex-direction:column;align-items:stretch;gap:9px;min-height:0}.offer-copy{max-width:100%}.offer-copy h2{font-size:clamp(34px,8.5vw,43px);margin-bottom:20px}.offer-copy p{font-size:16px;line-height:1.5;margin-bottom:8px}.offer-copy .offer-conclusion{font-size:17px;margin-top:12px}.offer-art{min-height:205px;align-self:center;width:min(100%,340px)}.offer-visual{width:100%;transform:none}.offer-aurora{opacity:.8}}
